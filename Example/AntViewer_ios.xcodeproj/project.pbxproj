@@ -272,7 +272,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-AntViewer_ios_Example/Pods-AntViewer_ios_Example-resources.sh",
 				"${PODS_ROOT}/../../AntViewer_ios/Assets/loader.json",
-				"${PODS_ROOT}/../../AntViewer_ios/Assets/Images.xcassets",
+				"${PODS_ROOT}/../../AntViewer_ios/Assets/Pictures.xcassets",
 				"${PODS_ROOT}/../../AntViewer_ios/Classes/AntWidget.xib",
 				"${PODS_ROOT}/../../AntViewer_ios/Classes/Controllers/PlayerController.xib",
 				"${PODS_ROOT}/../../AntViewer_ios/Classes/Controllers/PollController.xib",

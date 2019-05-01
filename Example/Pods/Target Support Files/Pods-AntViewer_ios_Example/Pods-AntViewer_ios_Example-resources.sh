@@ -98,7 +98,7 @@ EOM
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/../../AntViewer_ios/Assets/loader.json"
-  install_resource "${PODS_ROOT}/../../AntViewer_ios/Assets/Images.xcassets"
+  install_resource "${PODS_ROOT}/../../AntViewer_ios/Assets/Pictures.xcassets"
   install_resource "${PODS_ROOT}/../../AntViewer_ios/Classes/AntWidget.xib"
   install_resource "${PODS_ROOT}/../../AntViewer_ios/Classes/Controllers/PlayerController.xib"
   install_resource "${PODS_ROOT}/../../AntViewer_ios/Classes/Controllers/PollController.xib"
@@ -114,7 +114,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/../../AntViewer_ios/Assets/loader.json"
-  install_resource "${PODS_ROOT}/../../AntViewer_ios/Assets/Images.xcassets"
+  install_resource "${PODS_ROOT}/../../AntViewer_ios/Assets/Pictures.xcassets"
   install_resource "${PODS_ROOT}/../../AntViewer_ios/Classes/AntWidget.xib"
   install_resource "${PODS_ROOT}/../../AntViewer_ios/Classes/Controllers/PlayerController.xib"
   install_resource "${PODS_ROOT}/../../AntViewer_ios/Classes/Controllers/PollController.xib"

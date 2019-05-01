@@ -356,7 +356,6 @@
 		2AB3CC3EE66F604CD032C54168B3A372 /* AnimationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimationView.swift; path = "lottie-swift/src/Public/Animation/AnimationView.swift"; sourceTree = "<group>"; };
 		2AFF1AF39DE48CDF76563FB1F10F2082 /* String+MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+MD5.swift"; path = "Sources/Utility/String+MD5.swift"; sourceTree = "<group>"; };
 		2C83F1D936CCBD8C7B7168AE1005BAB0 /* ItemsExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ItemsExtension.swift; path = "lottie-swift/src/Private/NodeRenderSystem/Extensions/ItemsExtension.swift"; sourceTree = "<group>"; };
-		2D94703322FBD640EEDFB0CB5F61B802 /* loader.json */ = {isa = PBXFileReference; includeInIndex = 1; path = loader.json; sourceTree = "<group>"; };
 		2E095248EC2B9414A0CD0E2F67BCFF13 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		2EC1890BC681C0EA726B05729DA49367 /* Pods-AntViewer_ios_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AntViewer_ios_Tests-dummy.m"; sourceTree = "<group>"; };
 		2F56F3E9F6DF12EFED5A9AC6CBECCF8B /* AnimationImageProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimationImageProvider.swift; path = "lottie-swift/src/Public/ImageProvider/AnimationImageProvider.swift"; sourceTree = "<group>"; };
@@ -506,7 +505,6 @@
 		BB48347A7156C188E08FD9328BBE98A9 /* KingfisherManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherManager.swift; path = Sources/General/KingfisherManager.swift; sourceTree = "<group>"; };
 		BBEDDD46215AE637C42AD3CDA21F7D3A /* IQKeyboardManagerConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardManagerConstants.swift; path = IQKeyboardManagerSwift/Constants/IQKeyboardManagerConstants.swift; sourceTree = "<group>"; };
 		BE71D8104B332116B23A9B133D0DCAA3 /* Kingfisher-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Kingfisher-Info.plist"; sourceTree = "<group>"; };
-		BE947D2F8B8C0E14EE2F38C3D203F09C /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BEF39840E317CFE9D654BF8D76E14DB5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		BF6A9F7261371E0B79356BDD6C40C61B /* UIView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Extension.swift"; path = "AntViewer_ios/Classes/UIView+Extension.swift"; sourceTree = "<group>"; };
 		C04E82AC7F17339207DE1341EBF5FB57 /* IQKeyboardManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardManager.swift; path = IQKeyboardManagerSwift/IQKeyboardManager.swift; sourceTree = "<group>"; };
@@ -535,6 +533,7 @@
 		D4E51E97B81B5E8D379F95E190A20E6E /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Image/Filter.swift; sourceTree = "<group>"; };
 		D80C41A5F643550FCB6E076929F725FB /* CompatibleAnimationKeypath.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CompatibleAnimationKeypath.swift; path = "lottie-swift/src/Public/iOS/Compatibility/CompatibleAnimationKeypath.swift"; sourceTree = "<group>"; };
 		D9AADED0D68F890109427CA95A88F6F1 /* NavigationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		D9C803A66F86D0A149ED0B46AB2F5BA0 /* loader.json */ = {isa = PBXFileReference; includeInIndex = 1; path = loader.json; sourceTree = "<group>"; };
 		DAB03837E4D22CC03138F2467D6B237A /* IQBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQBarButtonItem.swift; path = IQKeyboardManagerSwift/IQToolbar/IQBarButtonItem.swift; sourceTree = "<group>"; };
 		DB6AC2E385C7CB1F0006356454FDE6E1 /* GradientStroke.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GradientStroke.swift; path = "lottie-swift/src/Private/Model/ShapeItems/GradientStroke.swift"; sourceTree = "<group>"; };
 		DB9E70882BF397DAA5E0714988C65DE7 /* CompositionLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CompositionLayer.swift; path = "lottie-swift/src/Private/LayerContainers/CompLayers/CompositionLayer.swift"; sourceTree = "<group>"; };
@@ -563,6 +562,7 @@
 		F10CF455D041C6AF5287703301CBC4E4 /* Kingfisher.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kingfisher.xcconfig; sourceTree = "<group>"; };
 		F1531F536312312DC6CA2138F4A5E619 /* LRUAnimationCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LRUAnimationCache.swift; path = "lottie-swift/src/Public/AnimationCache/LRUAnimationCache.swift"; sourceTree = "<group>"; };
 		F404AC7596647611C875315256299056 /* Pods-AntViewer_ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AntViewer_ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		F48D9CF83715434393E1D6758013E0CF /* Pictures.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Pictures.xcassets; sourceTree = "<group>"; };
 		F531C22779FD71CBBEE3CFDF570F0FC5 /* RequestModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestModifier.swift; path = Sources/Networking/RequestModifier.swift; sourceTree = "<group>"; };
 		F64A8E847DC9AA3DCD36EEC26B0B0EEA /* Vectors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Vectors.swift; path = "lottie-swift/src/Public/Primitives/Vectors.swift"; sourceTree = "<group>"; };
 		F6DE7E062D6B66938E6F390E82EBE283 /* StarNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StarNode.swift; path = "lottie-swift/src/Private/NodeRenderSystem/Nodes/PathNodes/StarNode.swift"; sourceTree = "<group>"; };
@@ -687,16 +687,6 @@
 			);
 			name = "Pods-AntViewer_ios_Example";
 			path = "Target Support Files/Pods-AntViewer_ios_Example";
-			sourceTree = "<group>";
-		};
-		237425E31BB78249465D7B0710F95531 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				BE947D2F8B8C0E14EE2F38C3D203F09C /* Images.xcassets */,
-				2D94703322FBD640EEDFB0CB5F61B802 /* loader.json */,
-			);
-			name = Assets;
-			path = AntViewer_ios/Assets;
 			sourceTree = "<group>";
 		};
 		2BA6A4AA19BA2D03F6B92CAE21B067D4 /* Pod */ = {
@@ -1123,7 +1113,7 @@
 		E1683B420A6D4073C3A18EE9CAA540E2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				237425E31BB78249465D7B0710F95531 /* Assets */,
+				F1906B2A8BBD3F86D6AC60AF457FF0DE /* Assets */,
 				63CE7E90D7047A426B5FD86E01C0CA03 /* Classes */,
 			);
 			name = Resources;
@@ -1140,6 +1130,16 @@
 				0F3E1C05E42D68E07233DC3A02E8D376 /* Pods_AntViewer_ios_Tests.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F1906B2A8BBD3F86D6AC60AF457FF0DE /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				D9C803A66F86D0A149ED0B46AB2F5BA0 /* loader.json */,
+				F48D9CF83715434393E1D6758013E0CF /* Pictures.xcassets */,
+			);
+			name = Assets;
+			path = AntViewer_ios/Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
