@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="AntViewer_ios_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Kmm-mh-E0F">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQV-Aa-geb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fake" translatesAutoresizingMaskIntoConstraints="NO" id="Nla-49-ouK">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="6500"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="6500" id="08U-a0-dhP"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Nla-49-ouK" secondAttribute="bottom" id="5gu-wM-58A"/>
+                                    <constraint firstItem="Nla-49-ouK" firstAttribute="top" secondItem="VQV-Aa-geb" secondAttribute="top" id="Ks6-vl-u2r"/>
+                                    <constraint firstItem="Nla-49-ouK" firstAttribute="leading" secondItem="VQV-Aa-geb" secondAttribute="leading" id="mcg-vZ-HCk"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="VQV-Aa-geb" secondAttribute="bottom" id="2Y7-oZ-fRb"/>
+                            <constraint firstItem="Nla-49-ouK" firstAttribute="width" secondItem="Kmm-mh-E0F" secondAttribute="width" id="2uZ-jQ-zqT"/>
+                            <constraint firstAttribute="trailing" secondItem="VQV-Aa-geb" secondAttribute="trailing" id="Jcz-Fa-bdf"/>
+                            <constraint firstItem="VQV-Aa-geb" firstAttribute="leading" secondItem="Kmm-mh-E0F" secondAttribute="leading" id="mr5-p6-zR8"/>
+                            <constraint firstItem="VQV-Aa-geb" firstAttribute="top" secondItem="Kmm-mh-E0F" secondAttribute="top" id="tM0-h4-rBS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wIa-4N-Gau"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="fake" width="400" height="6973"/>
+    </resources>
+</document>
