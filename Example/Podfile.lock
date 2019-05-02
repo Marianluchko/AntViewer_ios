@@ -1,5 +1,5 @@
 PODS:
-  - AntViewer_ios (0.1.8):
+  - AntViewer_ios (0.1.9):
     - IQKeyboardManagerSwift
     - Kingfisher
     - lottie-ios
@@ -21,7 +21,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AntViewer_ios: 3923a20b5ccc57c4a8e4d47d5b38c2820ee8c487
+  AntViewer_ios: cdcf78891a747073cd0f3c48f3080c87dab218f2
   IQKeyboardManagerSwift: 0f0ae8935360b4003e6ea1ac7c19898f01e2f7c7
   Kingfisher: d9e7e0b209b59b8f9873aa2f37654e81a7beea51
   lottie-ios: 55a2de40418f8de2b155efaba4d4d1a025a5c570
