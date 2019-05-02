@@ -23,6 +23,9 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tempPic" translatesAutoresizingMaskIntoConstraints="NO" id="Dge-5c-bGB">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="197"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="imageFromBundle" value="tempPic"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmR-Ou-VYx" userLabel="gradientView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="197"/>
@@ -105,6 +108,9 @@
                                                             <constraint firstAttribute="width" secondItem="ZuA-OY-RVb" secondAttribute="height" multiplier="1:1" id="nOs-IZ-R92"/>
                                                             <constraint firstAttribute="width" constant="12" id="znc-6g-j1I"/>
                                                         </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="imageFromBundle" value="OpenedEye"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6,356" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEH-4E-Uyv">
                                                         <rect key="frame" x="14" y="0.0" width="32" height="12"/>

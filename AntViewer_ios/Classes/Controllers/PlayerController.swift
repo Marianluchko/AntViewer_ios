@@ -127,7 +127,7 @@ class PlayerController: UIViewController {
       if let video = videoContent as? Video {
         portraitSeekSlider.isHidden = false
         portraitSeekSlider.maximumValue = Float(video.duration)
-        let image = UIImage(named: "thumb", in: Bundle(for: type(of: self)), compatibleWith: nil)
+        let image = UIImage.image("thumb")
         portraitSeekSlider.setThumbImage(image, for: .normal)
         portraitSeekSlider.addTarget(self, action: #selector(onSliderValChanged(slider:event:)), for: .valueChanged)
       }
@@ -139,7 +139,7 @@ class PlayerController: UIViewController {
       if let video = videoContent as? Video {
         landscapeSeekSlider.isHidden = false
         landscapeSeekSlider.maximumValue = Float(video.duration)
-        let image = UIImage(named: "thumb", in: Bundle(for: type(of: self)), compatibleWith: nil)
+        let image = UIImage.image("thumb")
         landscapeSeekSlider.setThumbImage(image, for: .normal)
         landscapeSeekSlider.addTarget(self, action: #selector(onSliderValChanged(slider:event:)), for: .valueChanged)
       }
@@ -523,7 +523,7 @@ class PlayerController: UIViewController {
   @objc
   private func onVideoEnd() {
     videoControlsView.isHidden = false
-    playButton.setImage(UIImage(named: "play", in: Bundle(for: type(of: self)), compatibleWith: nil), for: .normal)
+    playButton.setImage(UIImage.image("play"), for: .normal)
     player?.seek(to: .zero)
   }
   
@@ -606,11 +606,11 @@ class PlayerController: UIViewController {
   @IBAction func playButtonPressed(_ sender: UIButton) {
     if player?.isPlaying == true {
       player?.pause()
-      playButton.setImage(UIImage(named: "play", in: Bundle(for: type(of: self)), compatibleWith: nil), for: .normal)
+      playButton.setImage(UIImage.image("play"), for: .normal)
       controlsDebouncer.call {}
     } else {
       player?.play()
-      playButton.setImage(UIImage(named: "pause", in: Bundle(for: type(of: self)), compatibleWith: nil), for: .normal)
+      playButton.setImage(UIImage.image("pause"), for: .normal)
       controlsDebouncer.call { [weak self] in
         self?.videoControlsView.isHidden = true
       }

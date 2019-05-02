@@ -170,8 +170,8 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				20723ADFA34AA57E2B150D29 /* [CP] Embed Pods Frameworks */,
 				06330DAF9EFFE3E13E6CF0AF /* [CP] Copy Pods Resources */,
+				20723ADFA34AA57E2B150D29 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -271,8 +271,6 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-AntViewer_ios_Example/Pods-AntViewer_ios_Example-resources.sh",
-				"${PODS_ROOT}/../../AntViewer_ios/Assets/loader.json",
-				"${PODS_ROOT}/../../AntViewer_ios/Assets/Pictures.xcassets",
 				"${PODS_ROOT}/../../AntViewer_ios/Classes/AntWidget.xib",
 				"${PODS_ROOT}/../../AntViewer_ios/Classes/Controllers/PlayerController.xib",
 				"${PODS_ROOT}/../../AntViewer_ios/Classes/Controllers/PollController.xib",
@@ -285,11 +283,10 @@
 				"${PODS_ROOT}/../../AntViewer_ios/Classes/Views/PollStatisticCell.xib",
 				"${PODS_ROOT}/../../AntViewer_ios/Classes/Views/PortraitMessageCell.xib",
 				"${PODS_ROOT}/../../AntViewer_ios/Classes/Views/StreamViewCell.xib",
+				"${PODS_CONFIGURATION_BUILD_DIR}/AntViewer_ios/AntWidget.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/loader.json",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Assets.car",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntWidget.nib",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PlayerController.nib",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PollController.nib",
@@ -302,6 +299,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PollStatisticCell.nib",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PortraitMessageCell.nib",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StreamViewCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntWidget.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

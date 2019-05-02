@@ -23,7 +23,9 @@ public extension UIView {
   
   func showActivityIndicator() {
     removeActivityIndicator()
-    let bundle = Bundle(for: AntWidget.self)
+    let podBundle = Bundle(for: AntWidget.self)
+    guard let url = podBundle.url(forResource: "AntWidget", withExtension: "bundle"),
+      let bundle = Bundle(url: url) else { return }
     let animationView = AnimationView(name: "loader", bundle: bundle)
     animationView.loopMode = .loop
     addSubview(animationView)
@@ -51,5 +53,40 @@ public extension UIView {
     NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: container, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
   }
   
+}
+
+public extension UIButton {
+  @IBInspectable
+  var imageFromBundle: String {
+    set {
+      setImage(UIImage.image(newValue), for: [])
+    }
+    get {
+      return ""
+    }
+  }
+}
+
+public extension UIImageView {
+  @IBInspectable
+  var imageFromBundle: String {
+    set {
+      image = UIImage.image(newValue)
+    }
+    get {
+      return ""
+    }
+  }
+}
+
+public extension UIImage {
+  static func image(_ name: String) -> UIImage? {
+    let podBundle = Bundle(for: AntWidget.self)
+    if let url = podBundle.url(forResource: "AntWidget", withExtension: "bundle") {
+      let bundle = Bundle(url: url)
+      return UIImage(named: name, in: bundle, compatibleWith: nil)
+    }
+    return nil
+  }
 }
 

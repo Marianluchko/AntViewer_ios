@@ -130,8 +130,7 @@ public class AntWidget: UIView {
     backgroundColor = .clear
     dataSource = DataSource.shared
     NotificationCenter.default.addObserver(self, selector: #selector(handleNotification(_:)), name: NSNotification.Name(rawValue: "StreamsUpdated"), object: nil)
-    
-    antButton.setImage(UIImage(named: "Burger", in: Bundle(for: type(of: self)), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate), for: .normal)
+    antButton.setImage(UIImage.image("Burger")?.withRenderingMode(.alwaysTemplate), for: .normal)
     antButton.tintColor = .white
     
     shownStream = nil
@@ -201,15 +200,15 @@ public class AntWidget: UIView {
   func updateAntButton(forLive: Bool = false) {
     if forLive {
       antButton.addBadge(shape: .rect, text: "Live")
-      antButton.setImage(UIImage(named: "Burger", in: Bundle(for: type(of: self)), compatibleWith: nil), for: .normal)
+      antButton.setImage(UIImage.image("Burger"), for: .normal)
       return
     }
     guard let newVodsCount = dataSource?.videos.filter({!watchedVods.contains($0.id)}).count else {return}
     if newVodsCount > 0 {
       antButton.addBadge(shape: .circle, text: "\(newVodsCount)")
-      antButton.setImage(UIImage(named: "Burger", in: Bundle(for: type(of: self)), compatibleWith: nil), for: .normal)
+      antButton.setImage(UIImage.image("Burger"), for: .normal)
     } else {
-      antButton.setImage(UIImage(named: "Burger", in: Bundle(for: type(of: self)), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate), for: .normal)
+      antButton.setImage(UIImage.image("Burger")?.withRenderingMode(.alwaysTemplate), for: .normal)
       antButton.tintColor = .white
       antButton.removeBadge()
     }

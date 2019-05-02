@@ -99,6 +99,9 @@
                                         <constraint firstAttribute="width" constant="40" id="nBE-fm-Oce"/>
                                         <constraint firstAttribute="height" constant="24" id="xYm-Yt-j6m"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="imageFromBundle" value="PollIconMono"/>
+                                    </userDefinedRuntimeAttributes>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="utO-Zz-7v6">
                                     <rect key="frame" x="57.999999999999993" y="8.6666666666666643" width="121.33333333333331" height="42.666666666666664"/>
@@ -125,6 +128,9 @@
                                     </constraints>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" image="cross"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="imageFromBundle" value="cross"/>
+                                    </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="closePollButtonPressed:" destination="-1" eventType="touchUpInside" id="rs5-wK-nv3"/>
                                     </connections>
@@ -180,6 +186,9 @@
                                         <constraint firstAttribute="width" constant="32" id="sqO-UG-NSJ"/>
                                     </constraints>
                                     <state key="normal" image="sendButton"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="imageFromBundle" value="sendButton"/>
+                                    </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="sendButtonPressed:" destination="-1" eventType="touchUpInside" id="F11-gC-dIo"/>
                                     </connections>
@@ -217,6 +226,9 @@
                                         <constraint firstAttribute="width" constant="20" id="2qa-xt-O3H"/>
                                         <constraint firstAttribute="height" constant="12" id="cXm-Yu-nyv"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="imageFromBundle" value="PollIconMonoSmall"/>
+                                    </userDefinedRuntimeAttributes>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" name="a_green"/>
@@ -301,6 +313,9 @@
                                                                 <constraint firstAttribute="width" secondItem="KBx-e5-akH" secondAttribute="height" multiplier="1:1" id="GC3-XS-EcO"/>
                                                                 <constraint firstAttribute="width" constant="12" id="shE-66-GBj"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="imageFromBundle" value="OpenedEye"/>
+                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6,356" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YC6-us-n4y">
                                                             <rect key="frame" x="14" y="4.6666666666666643" width="34.666666666666664" height="11"/>
@@ -453,6 +468,9 @@
                             </constraints>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" image="cross"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageFromBundle" value="cross"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="closeButtonPressed:" destination="-1" eventType="touchUpInside" id="X6l-CP-b7Y"/>
                             </connections>
@@ -562,6 +580,7 @@
                                                             <integer key="value" value="20"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="imageFromBundle" value="avaPic"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                             </subviews>
@@ -603,6 +622,7 @@
                                                     <integer key="value" value="3"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="imageFromBundle" value="PollIconMonoSmall"/>
                                             </userDefinedRuntimeAttributes>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Be-bL-HI9">
@@ -612,6 +632,9 @@
                                                 <constraint firstAttribute="height" constant="24" id="PHY-Pv-Az8"/>
                                             </constraints>
                                             <state key="normal" image="share"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="imageFromBundle" value="share"/>
+                                            </userDefinedRuntimeAttributes>
                                         </button>
                                     </subviews>
                                 </stackView>
@@ -624,6 +647,9 @@
                                                 <constraint firstAttribute="height" constant="24" id="6Mh-IH-WfO"/>
                                                 <constraint firstAttribute="width" constant="40" id="Uva-po-0x0"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="imageFromBundle" value="PollIconMono"/>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="T9p-4T-pRM">
                                             <rect key="frame" x="57.999999999999993" y="5" width="121.33333333333331" height="4"/>
@@ -650,6 +676,9 @@
                                             </constraints>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" image="cross"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="imageFromBundle" value="cross"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="closePollButtonPressed:" destination="-1" eventType="touchUpInside" id="U0V-Cg-Hlf"/>
                                             </connections>
@@ -742,6 +771,9 @@
                                 <constraint firstAttribute="width" secondItem="rLh-4M-93p" secondAttribute="height" multiplier="1:1" id="v5P-rP-EI6"/>
                             </constraints>
                             <state key="normal" image="sendButton"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="imageFromBundle" value="sendButton"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="sendButtonPressed:" destination="-1" eventType="touchUpInside" id="Xc4-AS-46m"/>
                             </connections>

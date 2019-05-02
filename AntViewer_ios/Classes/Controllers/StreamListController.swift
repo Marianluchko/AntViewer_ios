@@ -38,7 +38,7 @@ class StreamListController: UICollectionViewController {
     navigationController?.navigationBar.updateBackgroundColor()
     let closeButton = UIButton(type: .custom)
     closeButton.tintColor = .white
-    closeButton.setImage(UIImage(named: "cross", in: Bundle(for: type(of: self)), compatibleWith: nil), for: .normal)
+    closeButton.setImage(UIImage.image("cross"), for: .normal)
     
     closeButton.addTarget(self, action: #selector(closeButtonPressed(_:)), for: .touchUpInside)
     closeButton.frame = CGRect(x: 0, y: 0, width: 36, height: 36)
@@ -85,11 +85,11 @@ class StreamListController: UICollectionViewController {
     cell.liveLabel.isHidden = item is Video
     cell.startTimeLabel.text = item.date.timeAgo()
     if let item = item as? Video {
-      cell.imagePlaceholder.image = UIImage(named: "\(item.id)", in: Bundle(for: type(of: self)), compatibleWith: nil)
+      cell.imagePlaceholder.image = UIImage.image("\(item.id)")
       cell.viewersCountLabel.text = "\(item.viewersCount) views"
       cell.streamDurationLabel.text = item.duration.durationString
     } else {
-      cell.imagePlaceholder.kf.setImage(with: URL(string: item.thumbnailUrl)!, placeholder: UIImage(named: "tempPic", in: Bundle(for: type(of: self)), compatibleWith: nil))
+      cell.imagePlaceholder.kf.setImage(with: URL(string: item.thumbnailUrl)!, placeholder: UIImage.image("tempPic"))
       cell.viewersCountLabel.text = "\(item.viewersCount) Viewers"
     }
     cell.layoutSubviews()

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AntViewer_ios'
-  s.version          = '0.1.7'
+  s.version          = '0.1.8'
   s.summary          = 'AntViewer provides to users possibility to watch streams and use chat and polls'
 
 # This description is used to generate tags and improve search results.
@@ -32,8 +32,11 @@ Pod::Spec.new do |s|
   s.ios.vendored_frameworks = 'AntViewer_ios/MyFrameworks/AntViewerExt.framework'
   #s.pod_target_xcconfig = { 'VALID_ARCHS[sdk=iphonesimulator*]' => '' }
 
-  s.resources = 'AntViewer_ios/Assets/*', 'AntViewer_ios/Classes/**/*.{storyboard,xib,plist}'
-
+  s.resources = 'AntViewer_ios/Classes/**/*.{storyboard,xib,plist}'
+  s.resource_bundles = {
+    'AntWidget' => ['AntViewer_ios/Assets/*']
+  }
+  #'AntViewer_ios/Assets/*',
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.static_framework = true
   s.frameworks = 'UIKit', 'AVKit'
