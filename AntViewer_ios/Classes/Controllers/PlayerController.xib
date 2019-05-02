@@ -363,6 +363,7 @@
                                                     <integer key="value" value="20"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="imageFromBundle" value="avaPic"/>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="6Kl-mg-51K">
@@ -394,6 +395,9 @@
                                         <constraint firstAttribute="width" constant="36" id="ebR-Z8-KtI"/>
                                     </constraints>
                                     <state key="normal" image="fullScreen"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="imageFromBundle" value="fullScreen"/>
+                                    </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="fullScreenButtonPressed:" destination="-1" eventType="touchUpInside" id="Rg5-ex-bNS"/>
                                     </connections>
@@ -411,6 +415,7 @@
                                             <integer key="value" value="4"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="imageFromBundle" value="pause"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="playButtonPressed:" destination="-1" eventType="touchUpInside" id="dod-3X-R2K"/>
