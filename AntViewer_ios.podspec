@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AntViewer_ios'
-  s.version          = '0.1.9'
+  s.version          = '0.2.0'
   s.summary          = 'AntViewer provides to users possibility to watch streams and use chat and polls'
 
 # This description is used to generate tags and improve search results.
@@ -41,8 +41,8 @@ Pod::Spec.new do |s|
   s.static_framework = true
   s.frameworks = 'UIKit', 'AVKit'
   s.dependency 'IQKeyboardManagerSwift'
-  #s.dependency 'Firebase/Core'
-  #s.dependency 'Firebase/Database'
+  s.dependency 'Firebase/Core'
+  s.dependency 'Firebase/Database'
   s.dependency 'lottie-ios'
   s.dependency 'Kingfisher'
 
