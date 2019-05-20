@@ -54,12 +54,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-AntViewer_ios_Example.xcscheme</key>
+		<key>Pods-AntViewer_ios_Example-AntViewer_ios_Tests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-AntViewer_ios_Tests.xcscheme</key>
+		<key>Pods-AntViewer_ios_Example.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

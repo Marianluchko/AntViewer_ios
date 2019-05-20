@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6FBF86014A6A77C35EE85C561F08B359"
-               BuildableName = "Pods_AntViewer_ios_Tests.framework"
-               BlueprintName = "Pods-AntViewer_ios_Tests"
+               BlueprintIdentifier = "CF3EFD98D7D6C57D4552C496AD2107A0"
+               BuildableName = "Pods_AntViewer_ios_Example_AntViewer_ios_Tests.framework"
+               BlueprintName = "Pods-AntViewer_ios_Example-AntViewer_ios_Tests"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6FBF86014A6A77C35EE85C561F08B359"
-            BuildableName = "Pods_AntViewer_ios_Tests.framework"
-            BlueprintName = "Pods-AntViewer_ios_Tests"
+            BlueprintIdentifier = "CF3EFD98D7D6C57D4552C496AD2107A0"
+            BuildableName = "Pods_AntViewer_ios_Example_AntViewer_ios_Tests.framework"
+            BlueprintName = "Pods-AntViewer_ios_Example-AntViewer_ios_Tests"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

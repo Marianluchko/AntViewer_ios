@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		014563FF2279AF9D0032BEC6 /* Pods_AntViewer_ios_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6876BC9A3197BA898E34056 /* Pods_AntViewer_ios_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		7C59254B88CE28CE2C60AD9C /* Pods_AntViewer_ios_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925C3754D3B163CBB0B1C4C3 /* Pods_AntViewer_ios_Tests.framework */; };
+		8C5F5DFC0D6DB4D2EBB37B47 /* Pods_AntViewer_ios_Example_AntViewer_ios_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ACE9834FA0B072ACD2BD22 /* Pods_AntViewer_ios_Example_AntViewer_ios_Tests.framework */; };
+		D08213B9B34D586765115E08 /* Pods_AntViewer_ios_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E404DBF776700B1F719C2CD5 /* Pods_AntViewer_ios_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		110DA8AD54DC23D2994E5A6D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		22ACE9834FA0B072ACD2BD22 /* Pods_AntViewer_ios_Example_AntViewer_ios_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AntViewer_ios_Example_AntViewer_ios_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37AB2F97D7496320133370EF /* Pods-AntViewer_ios_Example-AntViewer_ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntViewer_ios_Example-AntViewer_ios_Tests.release.xcconfig"; path = "Target Support Files/Pods-AntViewer_ios_Example-AntViewer_ios_Tests/Pods-AntViewer_ios_Example-AntViewer_ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* AntViewer_ios_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AntViewer_ios_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,13 +42,13 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		7F293439A4195B9EF7320781 /* Pods-AntViewer_ios_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntViewer_ios_Example.debug.xcconfig"; path = "Target Support Files/Pods-AntViewer_ios_Example/Pods-AntViewer_ios_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		925C3754D3B163CBB0B1C4C3 /* Pods_AntViewer_ios_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AntViewer_ios_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC4AE77ECCF6A07A7D1267F7 /* Pods-AntViewer_ios_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntViewer_ios_Tests.debug.xcconfig"; path = "Target Support Files/Pods-AntViewer_ios_Tests/Pods-AntViewer_ios_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		D87D3EEEB9C4FC99D8393C8E /* Pods-AntViewer_ios_Example-AntViewer_ios_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntViewer_ios_Example-AntViewer_ios_Tests.debug.xcconfig"; path = "Target Support Files/Pods-AntViewer_ios_Example-AntViewer_ios_Tests/Pods-AntViewer_ios_Example-AntViewer_ios_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DB868818FFC73F4A69E3A0DA /* Pods-AntViewer_ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntViewer_ios_Tests.release.xcconfig"; path = "Target Support Files/Pods-AntViewer_ios_Tests/Pods-AntViewer_ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E1F95A928F532FE807835E1E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		E404DBF776700B1F719C2CD5 /* Pods_AntViewer_ios_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AntViewer_ios_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E411A4CA7F802F67048895F2 /* Pods-AntViewer_ios_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntViewer_ios_Example.release.xcconfig"; path = "Target Support Files/Pods-AntViewer_ios_Example/Pods-AntViewer_ios_Example.release.xcconfig"; sourceTree = "<group>"; };
 		EBC22EEF660EBF0D0443B8D2 /* AntViewer_ios.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AntViewer_ios.podspec; path = ../AntViewer_ios.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		F6876BC9A3197BA898E34056 /* Pods_AntViewer_ios_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AntViewer_ios_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				014563FF2279AF9D0032BEC6 /* Pods_AntViewer_ios_Example.framework in Frameworks */,
+				D08213B9B34D586765115E08 /* Pods_AntViewer_ios_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C59254B88CE28CE2C60AD9C /* Pods_AntViewer_ios_Tests.framework in Frameworks */,
+				8C5F5DFC0D6DB4D2EBB37B47 /* Pods_AntViewer_ios_Example_AntViewer_ios_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +148,8 @@
 				E411A4CA7F802F67048895F2 /* Pods-AntViewer_ios_Example.release.xcconfig */,
 				AC4AE77ECCF6A07A7D1267F7 /* Pods-AntViewer_ios_Tests.debug.xcconfig */,
 				DB868818FFC73F4A69E3A0DA /* Pods-AntViewer_ios_Tests.release.xcconfig */,
+				D87D3EEEB9C4FC99D8393C8E /* Pods-AntViewer_ios_Example-AntViewer_ios_Tests.debug.xcconfig */,
+				37AB2F97D7496320133370EF /* Pods-AntViewer_ios_Example-AntViewer_ios_Tests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -153,8 +157,8 @@
 		B330046BC7A034479FE5FB8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F6876BC9A3197BA898E34056 /* Pods_AntViewer_ios_Example.framework */,
-				925C3754D3B163CBB0B1C4C3 /* Pods_AntViewer_ios_Tests.framework */,
+				E404DBF776700B1F719C2CD5 /* Pods_AntViewer_ios_Example.framework */,
+				22ACE9834FA0B072ACD2BD22 /* Pods_AntViewer_ios_Example_AntViewer_ios_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -190,6 +194,8 @@
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
+				A49D15DC4B784B620B5E1B23 /* [CP] Embed Pods Frameworks */,
+				63A2E6DD17BC776038AFF10E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -290,6 +296,48 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AntViewer_ios_Example/Pods-AntViewer_ios_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		63A2E6DD17BC776038AFF10E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AntViewer_ios_Example-AntViewer_ios_Tests/Pods-AntViewer_ios_Example-AntViewer_ios_Tests-resources.sh",
+				"${PODS_ROOT}/../../AntViewer_ios/Classes/AntWidget.xib",
+				"${PODS_ROOT}/../../AntViewer_ios/Classes/Controllers/PlayerController.xib",
+				"${PODS_ROOT}/../../AntViewer_ios/Classes/Controllers/PollController.xib",
+				"${PODS_ROOT}/../../AntViewer_ios/Classes/Controllers/StreamListController.xib",
+				"${PODS_ROOT}/../../AntViewer_ios/Classes/Views/EmptyView.xib",
+				"${PODS_ROOT}/../../AntViewer_ios/Classes/Views/HeaderView.xib",
+				"${PODS_ROOT}/../../AntViewer_ios/Classes/Views/LandscapeMessageCell.xib",
+				"${PODS_ROOT}/../../AntViewer_ios/Classes/Views/NewStreamCell.xib",
+				"${PODS_ROOT}/../../AntViewer_ios/Classes/Views/PollCell.xib",
+				"${PODS_ROOT}/../../AntViewer_ios/Classes/Views/PollStatisticCell.xib",
+				"${PODS_ROOT}/../../AntViewer_ios/Classes/Views/PortraitMessageCell.xib",
+				"${PODS_ROOT}/../../AntViewer_ios/Classes/Views/StreamViewCell.xib",
+				"${PODS_CONFIGURATION_BUILD_DIR}/AntViewer_ios/AntWidget.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntWidget.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PlayerController.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PollController.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StreamListController.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EmptyView.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/HeaderView.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/LandscapeMessageCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NewStreamCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PollCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PollStatisticCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PortraitMessageCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StreamViewCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntWidget.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AntViewer_ios_Example-AntViewer_ios_Tests/Pods-AntViewer_ios_Example-AntViewer_ios_Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A48BDE3E0A609C1F2993303A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -310,6 +358,32 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A49D15DC4B784B620B5E1B23 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AntViewer_ios_Example-AntViewer_ios_Tests/Pods-AntViewer_ios_Example-AntViewer_ios_Tests-frameworks.sh",
+				"${PODS_ROOT}/../../AntViewer_ios/MyFrameworks/AntViewerExt.framework",
+				"${PODS_ROOT}/../../AntViewer_ios/MyFrameworks/Lottie.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AntViewerExt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AntViewer_ios_Example-AntViewer_ios_Tests/Pods-AntViewer_ios_Example-AntViewer_ios_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BE56837384A21538ADE432F3 /* [CP] Copy Pods Resources */ = {
@@ -369,7 +443,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AntViewer_ios_Tests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-AntViewer_ios_Example-AntViewer_ios_Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -571,7 +645,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC4AE77ECCF6A07A7D1267F7 /* Pods-AntViewer_ios_Tests.debug.xcconfig */;
+			baseConfigurationReference = D87D3EEEB9C4FC99D8393C8E /* Pods-AntViewer_ios_Example-AntViewer_ios_Tests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -589,7 +663,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB868818FFC73F4A69E3A0DA /* Pods-AntViewer_ios_Tests.release.xcconfig */;
+			baseConfigurationReference = 37AB2F97D7496320133370EF /* Pods-AntViewer_ios_Example-AntViewer_ios_Tests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;

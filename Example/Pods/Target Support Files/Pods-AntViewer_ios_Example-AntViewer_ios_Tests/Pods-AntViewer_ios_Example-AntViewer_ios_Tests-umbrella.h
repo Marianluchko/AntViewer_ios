@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_AntViewer_ios_TestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_AntViewer_ios_TestsVersionString[];
+FOUNDATION_EXPORT double Pods_AntViewer_ios_Example_AntViewer_ios_TestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_AntViewer_ios_Example_AntViewer_ios_TestsVersionString[];
 
