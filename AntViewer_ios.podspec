@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AntViewer_ios'
-  s.version          = '0.2.0'
+  s.version          = '0.2.2'
   s.summary          = 'AntViewer provides to users possibility to watch streams and use chat and polls'
 
 # This description is used to generate tags and improve search results.
@@ -29,22 +29,20 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "11.3"
   s.source_files = 'AntViewer_ios/Classes/**/*.{swift}'
-  s.ios.vendored_frameworks = 'AntViewer_ios/MyFrameworks/AntViewerExt.framework'
-  #s.pod_target_xcconfig = { 'VALID_ARCHS[sdk=iphonesimulator*]' => '' }
+  s.ios.vendored_frameworks = 'AntViewer_ios/MyFrameworks/AntViewerExt.framework', 'AntViewer_ios/MyFrameworks/Lottie.framework'
 
   s.resources = 'AntViewer_ios/Classes/**/*.{storyboard,xib,plist}'
   s.resource_bundles = {
     'AntWidget' => ['AntViewer_ios/Assets/*']
   }
+  s.pod_target_xcconfig = {'DEFINES_MODULE' => 'YES'}
   #'AntViewer_ios/Assets/*',
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  s.static_framework = true
+  #s.static_framework = true
   s.frameworks = 'UIKit', 'AVKit'
-  s.dependency 'IQKeyboardManagerSwift'
-  s.dependency 'Firebase/Core'
-  s.dependency 'Firebase/Database'
-  s.dependency 'lottie-ios'
-  s.dependency 'Kingfisher'
-
-  s.swift_version = "4.2"
+  #s.dependency 'Firebase/Core'
+  #s.dependency 'Firebase/Database'
+  #s.dependency 'lottie-ios', '~> 2.5.3'
+  s.dependency 'SDWebImage', '~> 5.0'
+  s.swift_version = "5"
 end

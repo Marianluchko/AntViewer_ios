@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -102,7 +103,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Ryg-7v-nwp">
                                                 <rect key="frame" x="2" y="0.0" width="46" height="12"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpenedEye" translatesAutoresizingMaskIntoConstraints="NO" id="ZuA-OY-RVb">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZuA-OY-RVb">
                                                         <rect key="frame" x="0.0" y="0.0" width="12" height="12"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="ZuA-OY-RVb" secondAttribute="height" multiplier="1:1" id="nOs-IZ-R92"/>
@@ -199,7 +200,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="OpenedEye" width="36" height="36"/>
         <image name="tempPic" width="640" height="360"/>
     </resources>
 </document>

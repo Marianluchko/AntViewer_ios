@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import IQKeyboardManagerSwift
 import AntViewerExt
 
 public class AntWidget: UIView {
@@ -141,15 +140,6 @@ public class AntWidget: UIView {
     tongueView.addGestureRecognizer(tapGesture)
     watchedVods = []
     shownIds = []
-
-    setupKeyboard()
-  }
-  
-  func setupKeyboard() {
-    IQKeyboardManager.shared.enable = true
-    IQKeyboardManager.shared.enableAutoToolbar = false
-    IQKeyboardManager.shared.shouldResignOnTouchOutside = true
-    IQKeyboardManager.shared.disabledDistanceHandlingClasses = [PlayerController.self]
   }
   
   override public func layoutSubviews() {
@@ -161,7 +151,7 @@ public class AntWidget: UIView {
   @IBAction private func didTapButton(_ sender: Any?) {
     guard let vc = findViewController() else {return}
     if let stream = shownStream {
-      let playerVC = PlayerController()
+      let playerVC = PlayerController.init(nibName: "PlayerController", bundle: Bundle(for: type(of: self)))
       playerVC.videoContent = stream
       vc.present(playerVC, animated: true, completion: nil)
       return

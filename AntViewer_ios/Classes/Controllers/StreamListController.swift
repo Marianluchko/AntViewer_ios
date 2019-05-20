@@ -8,7 +8,7 @@
 
 import UIKit
 import AVKit
-import Kingfisher
+import SDWebImage
 import AntViewerExt
 
 private let reuseIdentifier = "NewStreamCell"
@@ -89,7 +89,7 @@ class StreamListController: UICollectionViewController {
       cell.viewersCountLabel.text = "\(item.viewersCount) views"
       cell.streamDurationLabel.text = item.duration.durationString
     } else {
-      cell.imagePlaceholder.kf.setImage(with: URL(string: item.thumbnailUrl)!, placeholder: UIImage.image("tempPic"))
+      cell.imagePlaceholder.sd_setImage(with: URL(string: item.thumbnailUrl), placeholderImage: UIImage.image("tempPic"))
       cell.viewersCountLabel.text = "\(item.viewersCount) Viewers"
     }
     cell.layoutSubviews()
@@ -145,7 +145,7 @@ extension StreamListController {
 extension StreamListController {
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let item = getItemForIndexPath(indexPath)
-    let playerVC = PlayerController()
+    let playerVC = PlayerController.init(nibName: "PlayerController", bundle: Bundle(for: type(of: self)))
     playerVC.videoContent = item
     present(playerVC, animated: true, completion: nil)
   }

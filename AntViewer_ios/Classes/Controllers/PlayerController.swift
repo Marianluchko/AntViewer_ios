@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import IQKeyboardManagerSwift
 import AVKit
 import AntViewerExt
 
@@ -47,6 +46,7 @@ class PlayerController: UIViewController {
   @IBOutlet weak var videoControlsView: UIView!
   @IBOutlet weak var playButton: UIButton!
   @IBOutlet weak var pollContainerView: UIView!
+  @IBOutlet weak var infoPortraitView: UIView!
   @IBOutlet weak var landscapeCollapsedPollLabel: UILabel!
   @IBOutlet weak var landscapeStreamInfoStackView: UIStackView!
   @IBOutlet weak var durationView: UIView! {
@@ -366,6 +366,20 @@ class PlayerController: UIViewController {
     adjustHeightForTextView(portraitTextView)
     adjustHeightForTextView(landscapeTextView)
     
+    let tap = UITapGestureRecognizer(target: self, action: #selector(handleTouches(sender:)))
+    tap.cancelsTouchesInView = false
+    view.addGestureRecognizer(tap)
+    
+  }
+  
+  @objc
+  func handleTouches(sender: UITapGestureRecognizer) {
+    let point = sender.location(in: view)
+    let isTouchOnTableView = portraitTableView.frame.contains(point)
+    let isTouchOnInfoView = infoPortraitView.frame.contains(point)
+    if isTouchOnTableView || isTouchOnInfoView {
+      view.endEditing(true)
+    }
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -404,7 +418,6 @@ class PlayerController: UIViewController {
           
         }
       }
-      
       
     } else {
       self.portraitTableView.reloadData()
@@ -545,7 +558,7 @@ class PlayerController: UIViewController {
   }
   
   private func removeMessage(_ message: Message) {
-    if let index = messagesDataSource.index(where: {$0.key == message.key}) {
+    if let index = messagesDataSource.firstIndex(where: {$0.key == message.key}) {
       self.messagesDataSource.remove(at: index)
       let indexPath = IndexPath(row: index, section: 0)
       UIView.setAnimationsEnabled(false)
@@ -629,6 +642,7 @@ class PlayerController: UIViewController {
     let name = UserDefaults.standard.string(forKey: "userName") ?? "SuperFan123"
     let message = Message(email: name, text: text)
     stream.send(message: message) { (error) in
+      textView?.text = ""
       if error == nil {
         self.adjustHeightForTextView(self.landscapeTextView)
         self.adjustHeightForTextView(self.portraitTextView)
@@ -639,7 +653,6 @@ class PlayerController: UIViewController {
           }
         })
       }
-      textView?.text = ""
       sender.isEnabled = true
     }
   }
