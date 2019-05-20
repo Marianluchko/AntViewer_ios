@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AntViewer_ios'
-  s.version          = '0.2.4'
+  s.version          = '0.2.5'
   s.summary          = 'AntViewer provides to users possibility to watch streams and use chat and polls'
 
 # This description is used to generate tags and improve search results.
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "11.3"
   s.source_files = 'AntViewer_ios/Classes/**/*.{swift}'
-  s.ios.vendored_frameworks = 'AntViewer_ios/MyFrameworks/AntViewerExt.framework', 'AntViewer_ios/MyFrameworks/Lottie.framework'
+  s.ios.vendored_frameworks = 'AntViewer_ios/MyFrameworks/AntViewerExt.framework', 'AntViewer_ios/MyFrameworks/Lottie.framework', 'ntViewer_ios/MyFrameworks/SDWebImage.framework'
 
   s.resources = 'AntViewer_ios/Classes/**/*.{storyboard,xib,plist}'
   s.resource_bundles = {
@@ -43,6 +43,6 @@ Pod::Spec.new do |s|
   s.dependency 'Firebase/Core', '~> 5.11'
   s.dependency 'Firebase/Database', '~> 5.11'
   #s.dependency 'lottie-ios', '~> 2.5.3'
-  s.dependency 'SDWebImage', '~> 5.0'
+  #s.dependency 'SDWebImage', '~> 5.0'
   s.swift_version = "5"
 end
