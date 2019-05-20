@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "11.3"
   s.source_files = 'AntViewer_ios/Classes/**/*.{swift}'
-  s.ios.vendored_frameworks = 'AntViewer_ios/MyFrameworks/AntViewerExt.framework', 'AntViewer_ios/MyFrameworks/Lottie.framework', 'ntViewer_ios/MyFrameworks/SDWebImage.framework'
+  s.ios.vendored_frameworks = 'AntViewer_ios/MyFrameworks/AntViewerExt.framework', 'AntViewer_ios/MyFrameworks/Lottie.framework'
 
   s.resources = 'AntViewer_ios/Classes/**/*.{storyboard,xib,plist}'
   s.resource_bundles = {
