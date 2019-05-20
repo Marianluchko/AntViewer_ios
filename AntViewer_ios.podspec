@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AntViewer_ios'
-  s.version          = '0.2.2'
+  s.version          = '0.2.3'
   s.summary          = 'AntViewer provides to users possibility to watch streams and use chat and polls'
 
 # This description is used to generate tags and improve search results.
@@ -38,10 +38,10 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig = {'DEFINES_MODULE' => 'YES'}
   #'AntViewer_ios/Assets/*',
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  #s.static_framework = true
+  s.static_framework = true
   s.frameworks = 'UIKit', 'AVKit'
-  #s.dependency 'Firebase/Core'
-  #s.dependency 'Firebase/Database'
+  s.dependency 'Firebase/Core', '~> 5.11'
+  s.dependency 'Firebase/Database', '~> 5.11'
   #s.dependency 'lottie-ios', '~> 2.5.3'
   s.dependency 'SDWebImage', '~> 5.0'
   s.swift_version = "5"
