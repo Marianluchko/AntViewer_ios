@@ -3,6 +3,8 @@ use_frameworks!
 
 target 'AntViewer_ios_Example' do
   pod 'AntViewer_ios', :path => '../'
+#  pod 'Firebase/Core', '~> 5.11', :modular_headers => true
+#  pod 'Firebase/Database', '~> 5.11', :modular_headers => true
 
   target 'AntViewer_ios_Tests' do
     inherit! :complete

@@ -35,6 +35,10 @@
     "DEFINES_MODULE": "YES"
   },
   "static_framework": true,
+  "xcconfig": {
+    "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/Firebase/CoreOnly/Sources",
+    "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/Firebase/CoreOnly/Sources"
+  },
   "frameworks": [
     "UIKit",
     "AVKit"

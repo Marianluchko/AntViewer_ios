@@ -15,5 +15,3 @@ FOUNDATION_EXPORT double AntViewerExtVersionNumber;
 FOUNDATION_EXPORT const unsigned char AntViewerExtVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <AntViewerExt/PublicHeader.h>
-
-
