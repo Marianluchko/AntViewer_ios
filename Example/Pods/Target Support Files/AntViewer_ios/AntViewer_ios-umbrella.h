@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "BridgingHeader.h"
 
 FOUNDATION_EXPORT double AntViewer_iosVersionNumber;
 FOUNDATION_EXPORT const unsigned char AntViewer_iosVersionString[];

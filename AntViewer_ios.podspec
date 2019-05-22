@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/kolyan94/AntViewer_ios.git', :tag => s.version.to_s }
 
   s.platform     = :ios, "11.3"
-  s.source_files = 'AntViewer_ios/Classes/**/*.{swift}'
+  s.source_files = 'AntViewer_ios/Classes/**/*.{swift,h}'
   s.ios.vendored_frameworks = 'AntViewer_ios/MyFrameworks/AntViewerExt.framework', 'AntViewer_ios/MyFrameworks/Lottie.framework'
 
   s.resources = 'AntViewer_ios/Classes/**/*.{storyboard,xib,plist}'
@@ -42,6 +42,7 @@ Pod::Spec.new do |s|
   s.xcconfig = { 'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/Firebase/CoreOnly/Sources',
     'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/Firebase/CoreOnly/Sources'
   }
+  s.public_header_files = 'AntViewer_ios/Classes/*.h'
   s.frameworks = 'UIKit', 'AVKit'
   s.dependency 'Firebase/Core', '~> 5.11'
   s.dependency 'Firebase/Database', '~> 5.11'
