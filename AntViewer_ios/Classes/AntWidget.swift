@@ -145,6 +145,9 @@ public class AntWidget: UIView {
   
   override public func layoutSubviews() {
     super.layoutSubviews()
+    if frame.size == .zero {
+      frame = initialFrame
+    }
     antButton.layer.cornerRadius = antButton.bounds.height/2
   }
 
