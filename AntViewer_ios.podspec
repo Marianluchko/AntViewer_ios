@@ -40,7 +40,6 @@ Pod::Spec.new do |s|
   s.xcconfig = { 'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/Firebase/CoreOnly/Sources',
     'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/Firebase/CoreOnly/Sources'
   }
-  s.public_header_files = 'AntViewer_ios/Classes/*.h'
   s.frameworks = 'UIKit', 'AVKit'
   s.dependency 'Firebase/Core', '~> 5.11'
   s.dependency 'Firebase/Database', '~> 5.11'
