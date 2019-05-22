@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AntViewer_ios'
-  s.version          = '0.3.1'
+  s.version          = '0.3.2'
   s.summary          = 'AntViewer provides to users possibility to watch streams and use chat and polls'
 
 # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/kolyan94/AntViewer_ios.git', :tag => s.version.to_s }
 
   s.platform     = :ios, "11.3"
-  s.source_files = 'AntViewer_ios/Classes/**/*.{swift,h}'
+  s.source_files = 'AntViewer_ios/Classes/**/*.{swift}'
   s.ios.vendored_frameworks = 'AntViewer_ios/MyFrameworks/AntViewerExt.framework', 'AntViewer_ios/MyFrameworks/Lottie.framework'
 
   s.resources = 'AntViewer_ios/Classes/**/*.{storyboard,xib,plist}'
@@ -36,8 +36,6 @@ Pod::Spec.new do |s|
     'AntWidget' => ['AntViewer_ios/Assets/*']
   }
   s.pod_target_xcconfig = {'DEFINES_MODULE' => 'YES'}
-  #'AntViewer_ios/Assets/*',
-  # s.public_header_files = 'Pod/Classes/**/*.h'
   s.static_framework = true
   s.xcconfig = { 'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/Firebase/CoreOnly/Sources',
     'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/Firebase/CoreOnly/Sources'

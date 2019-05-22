@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4A02ECC1A7C217655D48062895372F5D"
-               BuildableName = "AntViewer_ios.framework"
+               BuildableName = "libAntViewer_ios.a"
                BlueprintName = "AntViewer_ios"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

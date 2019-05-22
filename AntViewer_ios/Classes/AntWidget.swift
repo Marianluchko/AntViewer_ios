@@ -101,6 +101,7 @@ public class AntWidget: UIView {
   
   var initialFrame: CGRect = .zero
   
+  public
   convenience init() {
     let space: CGFloat = 20
     let height: CGFloat = 75
