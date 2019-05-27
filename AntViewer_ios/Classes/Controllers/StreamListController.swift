@@ -74,6 +74,7 @@ class StreamListController: UICollectionViewController {
   
   @objc
   private func closeButtonPressed(_ sender: UIButton) {
+    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ViewerWillDisappear"), object: nil)
     dismiss(animated: true, completion: nil)
   }
   

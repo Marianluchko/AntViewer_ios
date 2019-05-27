@@ -1,5 +1,5 @@
 PODS:
-  - AntViewer_ios (0.3.3):
+  - AntViewer_ios (0.3.5):
     - Firebase/Core (~> 5.11)
     - Firebase/Database (~> 5.11)
   - Firebase/Core (5.20.2):
@@ -83,7 +83,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AntViewer_ios: ec392cfea2138d8c899cfaa9b4f998afd7b38a79
+  AntViewer_ios: 44cd29b0fac2418242aad0049a97bf11654a0ff3
   Firebase: 0c8cf33f266410c61ab3e2265cfa412200351d9c
   FirebaseAnalytics: ece1aa57a4f43c64d53a648b5a5e05151aae947b
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
@@ -97,4 +97,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 5417053a0d148a3b8ae737aa30d9ff702ea5d88e
 
-COCOAPODS: 1.7.0.rc.2
+COCOAPODS: 1.7.0

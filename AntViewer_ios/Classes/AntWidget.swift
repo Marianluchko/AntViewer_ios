@@ -10,17 +10,29 @@ import UIKit
 import AntViewerExt
 
 public class AntWidget: UIView {
+  
   let kCONTENT_XIB_NAME = "AntWidget"
   
   @IBOutlet weak var contentView: UIView!
   @IBOutlet weak var streamNameLabel: UILabel!
   @IBOutlet weak var viewersCountLabel: UILabel!
+  @IBOutlet weak var newStreamLabel: UILabel!
   
   @IBOutlet weak var antButton: UIButton! {
     didSet {
       antButton.layer.cornerRadius = antButton.bounds.height/2
+      antButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+      antButton.layer.shadowOffset = CGSize(width: -3, height: 2)
+      antButton.layer.shadowOpacity = 0.7
+//      antButton.layer.shadowRadius = 0.0
+      
     }
   }
+  
+  var tongueWidth: CGFloat {
+    return 274
+  }
+  
   @IBOutlet weak var tongueView: UIView!
   @IBOutlet weak var tongueViewWidth: NSLayoutConstraint!
   
@@ -32,20 +44,20 @@ public class AntWidget: UIView {
       }
       
       if shownStream != nil {
-        tongueView.transform = CGAffineTransform(translationX: 274, y: 0)
-        tongueViewWidth.constant = 274
+        tongueView.transform = CGAffineTransform(translationX: tongueWidth, y: 0)
+        tongueViewWidth.constant = tongueWidth
         self.tongueView.isHidden = false
         self.increaseWidgetFrame()
         UIView.animate(withDuration: 0.3, animations: {
           self.tongueView.transform = CGAffineTransform(translationX: 0, y: 0)
-          self.tongueView.frame.size.width = 274
+          self.tongueView.frame.size.width = self.tongueWidth
           self.tongueView.isHidden = false
           self.tongueView.layoutIfNeeded()
         })
       } else {
         
         UIView.animate(withDuration: 0.3, animations: {
-          self.tongueView.transform = CGAffineTransform(translationX: 274, y: 0)
+          self.tongueView.transform = CGAffineTransform(translationX: self.tongueWidth, y: 0)
           self.tongueView.frame.size.width = 0
         }) { (value) in
           self.increaseWidgetFrame(false)
@@ -57,19 +69,6 @@ public class AntWidget: UIView {
     }
   }
   
-  //FIXME: Rename
-  func increaseWidgetFrame(_ value: Bool = true) {
-    if value {
-      var newFrame = initialFrame
-      newFrame.size.width += 274
-      newFrame.origin.x -= 274
-      self.frame = newFrame
-    } else {
-      self.frame = initialFrame
-    }
-  
-  }
-  
   var dataSource: DataSource? {
     didSet {
       dataSource?.startUpdateingStreams()
@@ -79,11 +78,6 @@ public class AntWidget: UIView {
   var shownIds: [Int] {
     set {
       UserDefaults.standard.set(newValue, forKey: "shownIds")
-      //MARK: For demo
-      guard !shownIds.isEmpty else {return}
-      DispatchQueue.global().asyncAfter(deadline: .now() + 11) {
-        UserDefaults.standard.set([], forKey: "shownIds")
-      }
     }
     get {
       return UserDefaults.standard.array(forKey: "shownIds") as? [Int] ?? []
@@ -100,6 +94,40 @@ public class AntWidget: UIView {
   }
   
   var initialFrame: CGRect = .zero
+  
+  var superViewRect: CGRect {
+    return superview?.bounds ?? UIScreen.main.bounds
+  }
+  
+  public var rightMargin: Int {
+    get {
+      let rightMargin = superViewRect.width - (initialFrame.origin.x + initialFrame.width)
+      return Int(rightMargin)
+    }
+    set {
+      let newX = superViewRect.width - (CGFloat(newValue) + initialFrame.width)
+      initialFrame.origin.x = newX
+      frame.origin.x = initialFrame.origin.x - tongueViewWidth.constant
+    }
+  }
+  
+  public var bottomMargin: Int {
+    get {
+      let bottomMargin = superViewRect.height - (initialFrame.origin.y + initialFrame.height)
+      return Int(bottomMargin)
+    }
+    set {
+      let newY = superViewRect.height - (CGFloat(newValue) + initialFrame.height)
+      initialFrame.origin.y = newY
+      frame.origin.y = initialFrame.origin.y
+    }
+  }
+  
+  public var isLightMode = false {
+    didSet {
+      updateColours()
+    }
+  }
   
   public
   convenience init() {
@@ -131,7 +159,7 @@ public class AntWidget: UIView {
     dataSource = DataSource.shared
     NotificationCenter.default.addObserver(self, selector: #selector(handleNotification(_:)), name: NSNotification.Name(rawValue: "StreamsUpdated"), object: nil)
     antButton.setImage(UIImage.image("Burger")?.withRenderingMode(.alwaysTemplate), for: .normal)
-    antButton.tintColor = .white
+    updateColours()
     
     shownStream = nil
     let rightSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture(_:)))
@@ -141,6 +169,28 @@ public class AntWidget: UIView {
     tongueView.addGestureRecognizer(tapGesture)
     watchedVods = []
     shownIds = []
+  }
+  
+  func updateColours() {
+    antButton.tintColor = isLightMode ? .black : .white
+    antButton.backgroundColor = isLightMode ? .white : UIColor.color("a_backgroundDarkGrey")
+    tongueView.backgroundColor = isLightMode ? .white : UIColor.color("a_dark")
+    streamNameLabel.textColor = isLightMode ? .black : .white
+    viewersCountLabel.textColor = isLightMode ? .black : .white
+    newStreamLabel.textColor = isLightMode ? .black : .white
+  }
+  
+  //FIXME: Rename
+  func increaseWidgetFrame(_ value: Bool = true) {
+    if value {
+      var newFrame = initialFrame
+      newFrame.size.width += tongueWidth
+      newFrame.origin.x -= tongueWidth
+      self.frame = newFrame
+    } else {
+      self.frame = initialFrame
+    }
+    
   }
   
   override public func layoutSubviews() {
@@ -154,9 +204,11 @@ public class AntWidget: UIView {
   @objc
   @IBAction private func didTapButton(_ sender: Any?) {
     guard let vc = findViewController() else {return}
+    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ViewerWillAppear"), object: nil)
     if let stream = shownStream {
-      let playerVC = PlayerController.init(nibName: "PlayerController", bundle: Bundle(for: type(of: self)))
+      let playerVC = PlayerController(nibName: "PlayerController", bundle: Bundle(for: type(of: self)))
       playerVC.videoContent = stream
+      playerVC.shouldNotify = true
       vc.present(playerVC, animated: true, completion: nil)
       return
     }
@@ -203,7 +255,7 @@ public class AntWidget: UIView {
       antButton.setImage(UIImage.image("Burger"), for: .normal)
     } else {
       antButton.setImage(UIImage.image("Burger")?.withRenderingMode(.alwaysTemplate), for: .normal)
-      antButton.tintColor = .white
+      antButton.tintColor = isLightMode ? .black : .white
       antButton.removeBadge()
     }
   }

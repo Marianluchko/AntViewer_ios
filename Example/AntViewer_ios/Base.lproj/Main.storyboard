@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,10 +32,58 @@
                                             <constraint firstAttribute="height" constant="6500" id="08U-a0-dhP"/>
                                         </constraints>
                                     </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="WID-A4-lOx">
+                                        <rect key="frame" x="143" y="262.5" width="89" height="142"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjH-8K-0R4">
+                                                <rect key="frame" x="29.5" y="0.0" width="30" height="30"/>
+                                                <state key="normal" title="Up">
+                                                    <color key="titleColor" name="a_poll1LightOrange"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="upPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xJO-wJ-ysH"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="KzY-h0-mRM">
+                                                <rect key="frame" x="0.0" y="56" width="89" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1m-1U-6IO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                        <state key="normal" title="Left">
+                                                            <color key="titleColor" name="a_poll1LightOrange"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="leftPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="d08-rZ-klK"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMF-P1-iij">
+                                                        <rect key="frame" x="53" y="0.0" width="36" height="30"/>
+                                                        <state key="normal" title="Right">
+                                                            <color key="titleColor" name="a_poll1LightOrange"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="rightPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="EAq-Xg-TNq"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QmU-ig-aCD">
+                                                <rect key="frame" x="25" y="112" width="39" height="30"/>
+                                                <state key="normal" title="Down">
+                                                    <color key="titleColor" name="a_poll1LightOrange"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="downPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fGm-0j-F3g"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="WID-A4-lOx" firstAttribute="centerX" secondItem="VQV-Aa-geb" secondAttribute="centerX" id="1we-fO-IFT"/>
                                     <constraint firstAttribute="bottom" secondItem="Nla-49-ouK" secondAttribute="bottom" id="5gu-wM-58A"/>
                                     <constraint firstItem="Nla-49-ouK" firstAttribute="top" secondItem="VQV-Aa-geb" secondAttribute="top" id="Ks6-vl-u2r"/>
+                                    <constraint firstItem="WID-A4-lOx" firstAttribute="centerY" secondItem="VQV-Aa-geb" secondAttribute="centerY" id="MK9-Oe-sYs"/>
                                     <constraint firstItem="Nla-49-ouK" firstAttribute="leading" secondItem="VQV-Aa-geb" secondAttribute="leading" id="mcg-vZ-HCk"/>
                                 </constraints>
                             </scrollView>
@@ -56,5 +105,8 @@
     </scenes>
     <resources>
         <image name="fake" width="400" height="6973"/>
+        <namedColor name="a_poll1LightOrange">
+            <color red="0.97254901960784312" green="0.73725490196078436" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

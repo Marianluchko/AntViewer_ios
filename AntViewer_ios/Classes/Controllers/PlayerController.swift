@@ -263,6 +263,7 @@ class PlayerController: UIViewController {
   }
   
   var videoContent: VideoContent!
+  var shouldNotify = false
   
   fileprivate var messagesDataSource = [Message]()
   fileprivate var pollController: PollController?
@@ -592,6 +593,9 @@ class PlayerController: UIViewController {
   }
   
   @IBAction func closeButtonPressed(_ sender: UIButton) {
+    if shouldNotify {
+      NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ViewerWillDisappear"), object: nil)
+    }
     NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
     NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     dismiss(animated: true, completion: nil)

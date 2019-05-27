@@ -14,6 +14,8 @@ class ViewController: UIViewController {
   var widget: AntWidget! {
     didSet {
       view.addSubview(widget)
+      widget.bottomMargin = 100
+      widget.rightMargin = 40
     }
   }
   
@@ -24,6 +26,30 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     widget = AntWidget()
+  }
+  
+  @IBAction func upPressed(_ sender: UIButton) {
+    print(widget.bottomMargin)
+    widget.bottomMargin += 1
+    print(widget.bottomMargin)
+  }
+  
+  @IBAction func downPressed(_ sender: UIButton) {
+    print(widget.bottomMargin)
+    widget.bottomMargin -= 1
+    print(widget.bottomMargin)
+  }
+  
+  @IBAction func leftPressed(_ sender: UIButton) {
+    print(widget.rightMargin)
+    widget.rightMargin += 1
+    print(widget.rightMargin)
+  }
+  
+  @IBAction func rightPressed(_ sender: UIButton) {
+    print(widget.rightMargin)
+    widget.rightMargin -= 1
+    print(widget.rightMargin)
   }
   
   
