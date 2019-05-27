@@ -99,6 +99,7 @@ public class AntWidget: UIView {
     return superview?.bounds ?? UIScreen.main.bounds
   }
   
+  @objc
   public var rightMargin: Int {
     get {
       let rightMargin = superViewRect.width - (initialFrame.origin.x + initialFrame.width)
@@ -111,6 +112,7 @@ public class AntWidget: UIView {
     }
   }
   
+  @objc
   public var bottomMargin: Int {
     get {
       let bottomMargin = superViewRect.height - (initialFrame.origin.y + initialFrame.height)
@@ -123,11 +125,18 @@ public class AntWidget: UIView {
     }
   }
   
+  @objc
   public var isLightMode = false {
     didSet {
       updateColours()
     }
   }
+  
+  @objc
+  public var onViewerAppear: ((NSDictionary) -> Void)?
+  
+  @objc
+  public var onViewerDisappear: ((NSDictionary) -> Void)?
   
   public
   convenience init() {
@@ -158,6 +167,9 @@ public class AntWidget: UIView {
     backgroundColor = .clear
     dataSource = DataSource.shared
     NotificationCenter.default.addObserver(self, selector: #selector(handleNotification(_:)), name: NSNotification.Name(rawValue: "StreamsUpdated"), object: nil)
+    NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "ViewerWillDisappear"), object: nil, queue: nil) { [weak self] (notification) in
+      self?.onViewerDisappear?([:])
+    }
     antButton.setImage(UIImage.image("Burger")?.withRenderingMode(.alwaysTemplate), for: .normal)
     updateColours()
     
@@ -204,7 +216,7 @@ public class AntWidget: UIView {
   @objc
   @IBAction private func didTapButton(_ sender: Any?) {
     guard let vc = findViewController() else {return}
-    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ViewerWillAppear"), object: nil)
+    onViewerAppear?([:])
     if let stream = shownStream {
       let playerVC = PlayerController(nibName: "PlayerController", bundle: Bundle(for: type(of: self)))
       playerVC.videoContent = stream
