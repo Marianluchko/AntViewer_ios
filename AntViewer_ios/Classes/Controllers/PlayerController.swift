@@ -255,6 +255,7 @@ class PlayerController: UIViewController {
       landscapeSendButton.isEnabled = isChatEnabled
       landscapeTextView.isEditable = isChatEnabled
       landscapeTextView.placeholder = isChatEnabled ? "Say something" : "Chat not available"
+      landscapeTextView.superview?.isHidden = !isChatEnabled
       if !isChatEnabled {
         portraitTextView.text = ""
         landscapeTextView.text = ""
@@ -437,15 +438,18 @@ class PlayerController: UIViewController {
       let playerObject = object as? AVPlayerItem,
       playerObject == currentPlayer.currentItem,
       keyPath == #keyPath(AVPlayerItem.status) {
+      print("LOL: \(currentPlayer.rate)")
       if currentPlayer.currentItem?.status == .readyToPlay {
+        print("AZAZA: \(keyPath)")
         if !isControlsEnabled {
+          print("BLABLA: \(keyPath)")
           currentPlayer.play()
           isControlsEnabled = true
         }
       }
       return
     }
-    
+    print("KEK: \(keyPath)")
     super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
   }
   
@@ -480,15 +484,15 @@ class PlayerController: UIViewController {
   }
   
   private func startPlayer(){
-    playerItem =  AVPlayerItem.init(url: URL.init(string: videoContent.url)!)
-    player = AVPlayer.init(playerItem: playerItem)
+    playerItem =  AVPlayerItem(url: URL(string: videoContent.url)!)
+    player = AVPlayer(playerItem: playerItem)
     player?.allowsExternalPlayback = true
     player?.rate = 1.0
     //TODO: AirPlay
 
     let castedLayer = videoContainerView.layer as! AVPlayerLayer
     castedLayer.player = player
-    player?.currentItem?.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.status), options: NSKeyValueObservingOptions(rawValue: 0), context: nil)
+    playerItem?.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.status), options: [.new, .initial], context: nil)
     
     playerTimeObserver = player?.addPeriodicTimeObserver(forInterval: CMTimeMake(value: 1, timescale: 1), queue: .main, using: { [weak self] (time) in
       guard self?.player?.currentItem?.status == .readyToPlay,

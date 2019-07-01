@@ -26,6 +26,8 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     widget = AntWidget()
+    widget.onViewerAppear = { [weak self] _ in
+    }
   }
   
   @IBAction func upPressed(_ sender: UIButton) {

@@ -78,6 +78,11 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0JZ-UX-gzz" customClass="AntWidget" customModule="AntViewer_ios">
+                                        <rect key="frame" x="120" y="57" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="WID-A4-lOx" firstAttribute="centerX" secondItem="VQV-Aa-geb" secondAttribute="centerX" id="1we-fO-IFT"/>

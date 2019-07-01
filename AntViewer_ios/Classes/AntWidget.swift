@@ -11,7 +11,7 @@ import AntViewerExt
 
 public class AntWidget: UIView {
   
-  let kCONTENT_XIB_NAME = "AntWidget"
+  private let kCONTENT_XIB_NAME = "AntWidget"
   
   @IBOutlet weak var contentView: UIView!
   @IBOutlet weak var streamNameLabel: UILabel!
@@ -24,19 +24,18 @@ public class AntWidget: UIView {
       antButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
       antButton.layer.shadowOffset = CGSize(width: -3, height: 2)
       antButton.layer.shadowOpacity = 0.7
-//      antButton.layer.shadowRadius = 0.0
       
     }
   }
   
-  var tongueWidth: CGFloat {
+  private var tongueWidth: CGFloat {
     return 274
   }
   
   @IBOutlet weak var tongueView: UIView!
   @IBOutlet weak var tongueViewWidth: NSLayoutConstraint!
   
-  var shownStream: AntViewerExt.Stream? {
+  private var shownStream: AntViewerExt.Stream? {
     didSet {
       streamNameLabel.text = shownStream?.title
       if let count = shownStream?.viewersCount {
@@ -69,13 +68,13 @@ public class AntWidget: UIView {
     }
   }
   
-  var dataSource: DataSource? {
+  private var dataSource: DataSource? {
     didSet {
       dataSource?.startUpdateingStreams()
     }
   }
   
-  var shownIds: [Int] {
+  private var shownIds: [Int] {
     set {
       UserDefaults.standard.set(newValue, forKey: "shownIds")
     }
@@ -84,7 +83,7 @@ public class AntWidget: UIView {
     }
   }
   
-  var watchedVods: [Int] {
+  private var watchedVods: [Int] {
     set {
       UserDefaults.standard.set(newValue, forKey: "viewedVods")
     }
@@ -93,7 +92,7 @@ public class AntWidget: UIView {
     }
   }
   
-  var initialFrame: CGRect = .zero
+  private var initialFrame: CGRect = .zero
   
   var superViewRect: CGRect {
     return superview?.bounds ?? UIScreen.main.bounds
@@ -183,7 +182,7 @@ public class AntWidget: UIView {
     shownIds = []
   }
   
-  func updateColours() {
+  private func updateColours() {
     antButton.tintColor = isLightMode ? .black : .white
     antButton.backgroundColor = isLightMode ? .white : UIColor.color("a_backgroundDarkGrey")
     tongueView.backgroundColor = isLightMode ? .white : UIColor.color("a_dark")
@@ -193,7 +192,7 @@ public class AntWidget: UIView {
   }
   
   //FIXME: Rename
-  func increaseWidgetFrame(_ value: Bool = true) {
+  private func increaseWidgetFrame(_ value: Bool = true) {
     if value {
       var newFrame = initialFrame
       newFrame.size.width += tongueWidth
@@ -255,7 +254,7 @@ public class AntWidget: UIView {
     
   }
   
-  func updateAntButton(forLive: Bool = false) {
+  private func updateAntButton(forLive: Bool = false) {
     if forLive {
       antButton.addBadge(shape: .rect, text: "Live")
       antButton.setImage(UIImage.image("Burger"), for: .normal)
