@@ -169,6 +169,7 @@ class PlayerController: UIViewController {
           landscapePollViewLeading.constant = landscapeStreamInfoStackView.frame.origin.x
           landscapePollBannerLeading.constant = landscapeStreamInfoStackView.frame.origin.x
           landscapeMessageLeading.constant = chatFieldLeading
+          currentTableView.frame.origin = CGPoint(x: chatFieldLeading >= 0 ? 0 : -self.currentTableView.frame.width, y: 0)
           if landscapeChatLeading.constant > 0 {
             landscapeChatLeading.constant = landscapeStreamInfoStackView.frame.origin.x
           }
@@ -684,21 +685,28 @@ class PlayerController: UIViewController {
     let halfOfViewWidth = view.bounds.width / 2
     guard OrientationUtility.isLandscape, sender.location(in: view).x <= halfOfViewWidth else {return}
     
+    var isRightDirection = false
     switch sender.direction {
     case .right:
-      landscapeChatLeading.constant = landscapeStreamInfoStackView.frame.origin.x
+//      landscapeChatLeading.constant = landscapeStreamInfoStackView.frame.origin.x
+      isRightDirection = true
       let isLeftInset = view.safeAreaInsets.left > 0
       chatFieldLeading = isKeyboardShown ? OrientationUtility.currentOrientatin == .landscapeRight && isLeftInset ? 30 : 0 : landscapeStreamInfoStackView.frame.origin.x
     case .left:
-      landscapeChatLeading.constant = -view.bounds.width
-      chatFieldLeading = -view.bounds.width
-      view.endEditing(true)
+//      landscapeChatLeading.constant = -view.bounds.width
+//      chatFieldLeading = -view.bounds.width
+//      view.endEditing(true)
+//      landscapeChatLeading.constant = -currentTableView.frame.width//view.bounds.width
+      chatFieldLeading = -currentTableView.frame.width//view.bounds.width
+
     default:
       return
     }
-    UIView.animate(withDuration: 0.3) {
-      self.view.layoutIfNeeded()
-    }
+    view.endEditing(false)
+        UIView.animate(withDuration: 0.3) {
+          self.view.layoutIfNeeded()
+          self.currentTableView.frame.origin = CGPoint(x: isRightDirection ? 0 : -self.currentTableView.frame.width, y: 0)
+        }
   }
   
   @objc
