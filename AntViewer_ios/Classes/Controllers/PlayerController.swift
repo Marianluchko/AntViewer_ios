@@ -188,6 +188,7 @@ class PlayerController: UIViewController {
       guard let poll = activePoll else {
         collapsedPollButton.alpha = 0
         UIView.transition(with: collapsedPollButton, duration: 0.3, options: .transitionFlipFromTop, animations: {
+          self.closeButtonPressed()
           self.newPollView.isHidden = true
           self.newPollView.alpha = 0
           self.collapsedPollButton.isHidden = true
