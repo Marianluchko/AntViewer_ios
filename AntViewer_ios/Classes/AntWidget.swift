@@ -180,6 +180,7 @@ public class AntWidget: UIView {
     tongueView.addGestureRecognizer(tapGesture)
     watchedVods = []
     shownIds = []
+    AppAuth.shared.auth()
   }
   
   private func updateColours() {
