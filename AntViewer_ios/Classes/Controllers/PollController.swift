@@ -97,7 +97,7 @@ extension PollController: UITableViewDelegate, UITableViewDataSource {
     if isPollStatistic {
       let cell = tableView.dequeueReusableCell(withIdentifier: "pollStatisticCell", for: indexPath) as! PollStatisticCell
       cell.pollChoiceLabel.text = poll?.pollAnswers[indexPath.row]
-      cell.progresView.backgroundColor = UIColor(named: colors[indexPath.row])
+      cell.progresView.backgroundColor = UIColor.color(colors[indexPath.row])
       let progress = tableView.bounds.width * CGFloat(poll?.percentForEachAnswer[indexPath.row] ?? 0) / 100
       cell.progressLabel.text = "\(poll?.percentForEachAnswer[indexPath.row] ?? 0) %"
       cell.progress.constant = progress
@@ -107,7 +107,7 @@ extension PollController: UITableViewDelegate, UITableViewDataSource {
     
     let cell = tableView.dequeueReusableCell(withIdentifier: "pollCell", for: indexPath) as! PollCell
     cell.pollChoiceLabel.text = poll?.pollAnswers[indexPath.row]
-    cell.backgroundCellView.backgroundColor = UIColor(named: colors[indexPath.row])
+    cell.backgroundCellView.backgroundColor = UIColor.color(colors[indexPath.row])
     
     return cell
   }
