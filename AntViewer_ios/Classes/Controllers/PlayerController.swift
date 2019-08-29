@@ -182,6 +182,8 @@ class PlayerController: UIViewController {
     }
   }
   
+  fileprivate var pollManager: PollManager?
+  
   fileprivate var activePoll: Poll? {
     didSet {
       NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "PollUpdated"), object: nil, userInfo: ["poll" : activePoll ?? 0])
@@ -199,14 +201,19 @@ class PlayerController: UIViewController {
         return
       }
       pollNameLabels.forEach {$0.text = poll.pollQuestion}
-      if activePoll?.answeredByUser == true {
-        let count = activePoll?.pollAnswers.reduce(0, {$0 + $1.1.count}) ?? 0
-        landscapeCollapsedPollLabel.text = "\(count)"
-      } else {
-        landscapeCollapsedPollLabel.text = "New poll!"
-      }
-      if oldValue?.key != poll.key {
-        shouldShowBigPollMessage = !poll.answeredByUser
+      
+      
+      poll.onUpdate = { [weak self] in
+        guard let _ = self?.activePoll else { return }
+        NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "PollUpdated"), object: nil, userInfo: ["poll" : self?.activePoll ?? 0])
+        self?.shouldShowBigPollMessage = self?.activePoll?.answeredByUser == false
+
+        if self?.activePoll?.answeredByUser == true {
+          let count = self?.activePoll?.answersCount.reduce(0, +) ?? 0
+          self?.landscapeCollapsedPollLabel.text = "\(count)"
+        } else {
+          self?.landscapeCollapsedPollLabel.text = "New poll!"
+        }
       }
     }
   }
@@ -261,6 +268,28 @@ class PlayerController: UIViewController {
       if !isChatEnabled {
         portraitTextView.text = ""
         landscapeTextView.text = ""
+      }
+    }
+  }
+  
+  private var chat: Chat? {
+    didSet {
+      chat?.onAdd = { [weak self] message in
+        self?.insertMessage(message)
+      }
+      chat?.onRemove = { [weak self] message in
+        self?.removeMessage(message)
+      }
+      chat?.onStateChange = { [weak self] isActive in
+        self?.isChatEnabled = isActive
+      }
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+        if self?.messagesDataSource.isEmpty == false {
+          let lastIndexPath = IndexPath(row: self!.messagesDataSource.count - 1, section: 0)
+          if lastIndexPath.row >= 0 {
+            self?.currentTableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: false)
+          }
+        }
       }
     }
   }
@@ -331,6 +360,8 @@ class PlayerController: UIViewController {
     chatFieldLeading = landscapeStreamInfoStackView.frame.origin.x
     try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
     
+    isChatEnabled = false
+    
     if videoContent is Video {
       if !viewedVods.contains(videoContent.id) {
         viewedVods.append(videoContent.id)
@@ -339,10 +370,15 @@ class PlayerController: UIViewController {
       landscapeMessageContainerHeight.priority = UILayoutPriority(rawValue: 999)
       landscapeSendButton.superview?.isHidden = true
       videoEmuMessages = ChatEmulation.chatEmulationVideoArray[videoContent.id - 1]
+    } else {
+      pollManager = PollManager(streamId: videoContent.id)
+      pollManager?.observePolls(completion: { [weak self] (poll) in
+        self?.activePoll = poll
+      })
+      self.chat = Chat(streamID: videoContent.id)
     }
     
-    isChatEnabled = false
-    setupStreamObservers()
+    
     
     var token: NSObjectProtocol?
     token = NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main) { [weak self] (notification) in
@@ -365,14 +401,9 @@ class PlayerController: UIViewController {
       }
       
     }
-    
     startPlayer()
     adjustHeightForTextView(portraitTextView)
     adjustHeightForTextView(landscapeTextView)
-    
-    let tap = UITapGestureRecognizer(target: self, action: #selector(handleTouches(sender:)))
-    tap.cancelsTouchesInView = false
-    view.addGestureRecognizer(tap)
     
   }
   
@@ -407,6 +438,10 @@ class PlayerController: UIViewController {
     view.endEditing(true)
     UIApplication.shared.isIdleTimerDisabled = false
     
+  }
+  
+  deinit {
+    pollManager?.removeFirObserver()
   }
   
   override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -454,37 +489,7 @@ class PlayerController: UIViewController {
     print("KEK: \(keyPath)")
     super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
   }
-  
-  private func setupStreamObservers() {
-    
-    guard let stream = videoContent as? AntViewerExt.Stream else {return}
-    
-    stream.observeChat { [weak self] (event) in
-      switch event {
-      case .created:
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-          if self?.messagesDataSource.isEmpty == false {
-            let lastIndexPath = IndexPath(row: self!.messagesDataSource.count - 1, section: 0)
-            if lastIndexPath.row >= 0 {
-              self?.currentTableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: false)
-            }
-          }
-        }
-      case .stateChanged(isActive: let isActive):
-        self?.isChatEnabled = isActive
-      case .added(message: let message):
-        self?.insertMessage(message)
-      case .removed(message: let message):
-        self?.removeMessage(message)
-      }
-    }
-    
-    stream.observePoll { [weak self] (poll) in
-      self?.activePoll = poll
-    }
-  
-  }
-  
+ 
   private func startPlayer(){
     playerItem =  AVPlayerItem(url: URL(string: videoContent.url)!)
     player = AVPlayer(playerItem: playerItem)
@@ -650,8 +655,8 @@ class PlayerController: UIViewController {
     guard let stream = videoContent as? AntViewerExt.Stream else {return}
     sender.isEnabled = false
     let name = UserDefaults.standard.string(forKey: "userName") ?? "SuperFan123"
-    let message = Message(email: name, text: text)
-    stream.send(message: message) { (error) in
+    let message = Message(userID: "testViewerID", nickname: name, text: text)
+    self.chat?.send(message: message) { (error) in
       textView?.text = ""
       if error == nil {
         self.adjustHeightForTextView(self.landscapeTextView)
