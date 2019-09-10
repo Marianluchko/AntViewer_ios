@@ -353,7 +353,6 @@
 				"${PODS_ROOT}/../../AntViewer_ios/Classes/Views/PortraitMessageCell.xib",
 				"${PODS_ROOT}/../../AntViewer_ios/Classes/Views/StreamViewCell.xib",
 				"${PODS_CONFIGURATION_BUILD_DIR}/AntViewer_ios/AntWidget.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++/gRPCCertificates.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -370,7 +369,6 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PortraitMessageCell.nib",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StreamViewCell.nib",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntWidget.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -419,7 +417,6 @@
 				"${PODS_ROOT}/../../AntViewer_ios/Classes/Views/PortraitMessageCell.xib",
 				"${PODS_ROOT}/../../AntViewer_ios/Classes/Views/StreamViewCell.xib",
 				"${PODS_CONFIGURATION_BUILD_DIR}/AntViewer_ios/AntWidget.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++/gRPCCertificates.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -436,7 +433,6 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PortraitMessageCell.nib",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StreamViewCell.nib",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntWidget.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
