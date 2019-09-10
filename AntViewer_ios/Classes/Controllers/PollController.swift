@@ -24,7 +24,7 @@ class PollController: UIViewController {
   @IBOutlet weak var questionLabel: UILabel!
   @IBOutlet weak var totalAnswersLabel: UILabel! {
     didSet {
-      let count = poll?.pollAnswers.reduce(0, {$0 + $1.1.count}) ?? 0
+      let count = poll?.answersCount.reduce(0, +) ?? 0
       totalAnswersLabel.text = "\(count)"
     }
   }
@@ -72,7 +72,7 @@ class PollController: UIViewController {
       return
     }
     poll = newPoll
-    let count = poll?.pollAnswers.reduce(0, {$0 + $1.1.count}) ?? 0
+    let count = poll?.answersCount.reduce(0, +) ?? 0
     totalAnswersLabel.text = "\(count)"
     isPollStatistic = poll?.answeredByUser == true
   }
@@ -96,8 +96,8 @@ extension PollController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if isPollStatistic {
       let cell = tableView.dequeueReusableCell(withIdentifier: "pollStatisticCell", for: indexPath) as! PollStatisticCell
-      cell.pollChoiceLabel.text = poll?.pollAnswers[indexPath.row].0
-      cell.progresView.backgroundColor = UIColor(named: colors[indexPath.row])
+      cell.pollChoiceLabel.text = poll?.pollAnswers[indexPath.row]
+      cell.progresView.backgroundColor = UIColor.color(colors[indexPath.row])
       let progress = tableView.bounds.width * CGFloat(poll?.percentForEachAnswer[indexPath.row] ?? 0) / 100
       cell.progressLabel.text = "\(poll?.percentForEachAnswer[indexPath.row] ?? 0) %"
       cell.progress.constant = progress
@@ -106,8 +106,8 @@ extension PollController: UITableViewDelegate, UITableViewDataSource {
     }
     
     let cell = tableView.dequeueReusableCell(withIdentifier: "pollCell", for: indexPath) as! PollCell
-    cell.pollChoiceLabel.text = poll?.pollAnswers[indexPath.row].0
-    cell.backgroundCellView.backgroundColor = UIColor(named: colors[indexPath.row])
+    cell.pollChoiceLabel.text = poll?.pollAnswers[indexPath.row]
+    cell.backgroundCellView.backgroundColor = UIColor.color(colors[indexPath.row])
     
     return cell
   }
@@ -116,8 +116,7 @@ extension PollController: UITableViewDelegate, UITableViewDataSource {
     guard !isPollStatistic else {return}
     poll?.answeredByUser = true
     isPollStatistic = true
-    let name = UserDefaults.standard.string(forKey: "userName") ?? "SuperFan123"
-    poll?.saveVoteForUsername(name, withAnswer: indexPath.row)
+    poll?.saveAnswerWith(index: indexPath.row)
   }
   
 }
