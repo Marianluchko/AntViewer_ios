@@ -81,13 +81,13 @@ class StreamListController: UICollectionViewController {
   fileprivate func configureCell(_ cell: NewStreamCell, forIndexPath indexPath: IndexPath) -> NewStreamCell {
     let item = getItemForIndexPath(indexPath)
     cell.streamNameLabel.text = item.title
-    cell.streamDurationView.isHidden = item is AntViewerExt.Stream
-    cell.liveLabel.isHidden = item is Video
+    cell.streamDurationView.isHidden = !(item is Vod)
+    cell.liveLabel.isHidden = item is Vod
     cell.startTimeLabel.text = item.date.timeAgo()
-    if let item = item as? Video {
-      cell.imagePlaceholder.image = UIImage.image("\(item.id)")
+    if let item = item as? Vod {
       cell.viewersCountLabel.text = "\(item.viewersCount) views"
-      cell.streamDurationLabel.text = item.duration.durationString
+      cell.imagePlaceholder.load(url: URL(string: item.thumbnailUrl), placeholder: UIImage.image("tempPic"))
+      cell.streamDurationLabel.text = item.duration
     } else {
       cell.imagePlaceholder.load(url: URL(string: item.thumbnailUrl), placeholder: UIImage.image("tempPic"))
 //      cell.imagePlaceholder.sd_setImage(with: URL(string: item.thumbnailUrl), placeholderImage: UIImage.image("tempPic"))
