@@ -31,7 +31,7 @@ class PlayerController: UIViewController {
   @IBOutlet weak var landscapePollBannerLeading: NSLayoutConstraint!
   @IBOutlet weak var liveLabelWidth: NSLayoutConstraint! {
     didSet {
-      liveLabelWidth.constant = videoContent is Video ? 0 : 36
+      liveLabelWidth.constant = videoContent is Vod ? 0 : 36
     }
   }
   
@@ -57,13 +57,17 @@ class PlayerController: UIViewController {
   
   @IBOutlet weak var durationLabel: UILabel! {
     didSet {
-      if let video = videoContent as? Video {
-        durationLabel.text = video.duration.durationString
+      if let video = videoContent as? Vod {
+        durationLabel.text = video.duration
       }
-      
     }
   }
   
+  @IBOutlet weak var broadcasterProfileImage: UIImageView! {
+    didSet {
+      broadcasterProfileImage.load(url: URL(string: videoContent.broadcasterPicUrl), placeholder: UIImage.image("avaPic"))
+    }
+  }
   @IBOutlet weak var startLabel: UILabel!
   @IBOutlet weak var newPollView: UIView! {
     didSet {
@@ -94,7 +98,7 @@ class PlayerController: UIViewController {
   
   @IBOutlet weak var viewersCountLabel: UILabel! {
     didSet {
-      viewersCountLabel.text = "\(videoContent.viewersCount) \(videoContent is Video ? "viewes" : "Viewers")"
+      viewersCountLabel.text = "\(videoContent.viewersCount) \(videoContent is Vod ? "viewes" : "Viewers")"
     }
   }
   
@@ -124,9 +128,9 @@ class PlayerController: UIViewController {
   
   @IBOutlet weak var portraitSeekSlider: UISlider! {
     didSet {
-      if let video = videoContent as? Video {
+      if let video = videoContent as? Vod {
         portraitSeekSlider.isHidden = false
-        portraitSeekSlider.maximumValue = Float(video.duration)
+        portraitSeekSlider.maximumValue = Float(video.duration.duration())
         let image = UIImage.image("thumb")
         portraitSeekSlider.setThumbImage(image, for: .normal)
         portraitSeekSlider.addTarget(self, action: #selector(onSliderValChanged(slider:event:)), for: .valueChanged)
@@ -136,9 +140,9 @@ class PlayerController: UIViewController {
   
   @IBOutlet weak var landscapeSeekSlider: UISlider! {
     didSet {
-      if let video = videoContent as? Video {
+      if let video = videoContent as? Vod {
         landscapeSeekSlider.isHidden = false
-        landscapeSeekSlider.maximumValue = Float(video.duration)
+        landscapeSeekSlider.maximumValue = Float(video.duration.duration())
         let image = UIImage.image("thumb")
         landscapeSeekSlider.setThumbImage(image, for: .normal)
         landscapeSeekSlider.addTarget(self, action: #selector(onSliderValChanged(slider:event:)), for: .valueChanged)
@@ -155,7 +159,7 @@ class PlayerController: UIViewController {
   fileprivate var currentOrientation: UIInterfaceOrientationMask! {
     didSet {
       if currentOrientation != oldValue {
-        if videoContent is Video {
+        if videoContent is Vod {
           seekTo = nil
         }
         adjustHeightForTextView(landscapeTextView)
@@ -275,13 +279,17 @@ class PlayerController: UIViewController {
   private var chat: Chat? {
     didSet {
       chat?.onAdd = { [weak self] message in
-        self?.insertMessage(message)
+        self?.videoContent is Vod ? self?.vodMessages?.append(message) : self?.insertMessage(message)
       }
       chat?.onRemove = { [weak self] message in
         self?.removeMessage(message)
       }
       chat?.onStateChange = { [weak self] isActive in
+        if !(self?.videoContent is Vod) {
         self?.isChatEnabled = isActive
+        } else {
+          self?.isChatEnabled = false
+        }
       }
       DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
         if self?.messagesDataSource.isEmpty == false {
@@ -307,8 +315,8 @@ class PlayerController: UIViewController {
   fileprivate var isControlsEnabled = false
   fileprivate var controlsDebouncer = Debouncer(delay: 3)
   
-  //MARK: For fake vods
-  fileprivate var videoEmuMessages: [Message]?
+  //MARK: For vods
+  fileprivate var vodMessages: [Message]? = []
   
   fileprivate var chatFieldLeading: CGFloat! {
     didSet {
@@ -321,11 +329,13 @@ class PlayerController: UIViewController {
     didSet {
       if seekTo == nil, let time = oldValue {
         player?.seek(to: CMTime(seconds: Double(time), preferredTimescale: 1))
-        if let filteredMessages = videoEmuMessages?.filter({$0.timestamp < time}) {
-          messagesDataSource = filteredMessages
-        }
-        portraitTableView.reloadData()
-        landscapeTableView.reloadData()
+//        let _time = Int(videoContent.date.timeIntervalSince1970) + time
+//        if let filteredMessages = vodMessages?.filter({$0.timestamp < _time}) {
+//          messagesDataSource = filteredMessages
+//        }
+        handleVODsChat(forTime: time)
+//        portraitTableView.reloadData()
+//        landscapeTableView.reloadData()
         if messagesDataSource.count > 0 {
           currentTableView.scrollToRow(at: IndexPath(row: messagesDataSource.count - 1, section: 0), at: .bottom, animated: true)
         }
@@ -362,22 +372,21 @@ class PlayerController: UIViewController {
     
     isChatEnabled = false
     
-    if videoContent is Video {
+    if videoContent is Vod {
       if !viewedVods.contains(videoContent.id) {
         viewedVods.append(videoContent.id)
         NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "StreamsUpdated"), object: nil)
       }
       landscapeMessageContainerHeight.priority = UILayoutPriority(rawValue: 999)
       landscapeSendButton.superview?.isHidden = true
-      videoEmuMessages = ChatEmulation.chatEmulationVideoArray[videoContent.id - 1]
+//      videoEmuMessages = ChatEmulation.chatEmulationVideoArray[videoContent.id - 1]
     } else {
-      pollManager = PollManager(streamId: videoContent.id)
+      pollManager = PollManager(streamId: videoContent.streamId)
       pollManager?.observePolls(completion: { [weak self] (poll) in
         self?.activePoll = poll
       })
-      self.chat = Chat(streamID: videoContent.id)
     }
-    
+    self.chat = Chat(streamID: videoContent.streamId)
     
     
     var token: NSObjectProtocol?
@@ -490,13 +499,30 @@ class PlayerController: UIViewController {
     super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
   }
  
+  private func handleVODsChat(forTime time: Int) {
+    let currentTime = Int(videoContent.date.timeIntervalSince1970) + time
+    guard let vodMessages = self.vodMessages else { return }
+    let filteredArr = vodMessages.filter({$0.timestamp <= currentTime })
+    let dif = filteredArr.count - messagesDataSource.count
+    guard dif != 0 else { return }
+    var difArr: [Message]
+    difArr =  dif > 0 ?
+      filteredArr.filter { mes in !messagesDataSource.contains(where: { $0.key == mes.key })} :
+      messagesDataSource.filter { mes in !filteredArr.contains(where: { $0.key == mes.key })}
+
+    difArr.forEach { (message) in
+      dif > 0 ? self.insertMessage(message) : self.removeMessage(message)
+    }
+    
+  }
+  
   private func startPlayer(){
     playerItem =  AVPlayerItem(url: URL(string: videoContent.url)!)
     player = AVPlayer(playerItem: playerItem)
     player?.allowsExternalPlayback = true
     player?.rate = 1.0
     //TODO: AirPlay
-
+    print("DURATION: \(playerItem?.asset.duration)")
     let castedLayer = videoContainerView.layer as! AVPlayerLayer
     castedLayer.player = player
     playerItem?.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.status), options: [.new, .initial], context: nil)
@@ -510,13 +536,23 @@ class PlayerController: UIViewController {
       } else {
         self?.videoContainerView.showActivityIndicator()
       }
-      if self?.videoContent is Video {
+      if self?.videoContent is Vod {
         
-        if let message = self?.videoEmuMessages?.first(where: {$0.timestamp == Int(time.seconds)}) {
-          if !self!.messagesDataSource.contains(where: {$0.text == message.text}) {
-            self?.insertMessage(message)
-          }
-        }
+        let printArr = self?.vodMessages?.map({ (message) -> (Int, Int) in
+          var messageTime = 0
+          var seekTime = 0
+          messageTime = message.timestamp
+          seekTime = Int(self?.videoContent.date.timeIntervalSince1970 ?? 0) + Int(time.seconds)
+          return (messageTime, seekTime)
+        })
+        
+        printArr?.forEach({ print($0) })
+        self?.handleVODsChat(forTime: Int(time.seconds))
+//        if let message = self?.vodMessages?.first(where: {$0.timestamp >= Int(self?.videoContent.date.timeIntervalSince1970 ?? 0) + Int(time.seconds)}) {
+//          if !self!.messagesDataSource.contains(where: {$0.text == message.text}) {
+//            self?.insertMessage(message)
+//          }
+//        }
         
         self?.seekLabel.text = Int(time.seconds).durationString
         if self?.seekTo == nil {
@@ -525,7 +561,7 @@ class PlayerController: UIViewController {
         }
       }
     })
-    if videoContent is Video {
+    if videoContent is Vod {
       NotificationCenter.default.addObserver(self, selector: #selector(onVideoEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
     }
     videoContainerView.showActivityIndicator()
