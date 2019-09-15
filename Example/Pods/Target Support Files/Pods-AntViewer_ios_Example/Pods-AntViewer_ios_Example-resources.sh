@@ -110,6 +110,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/../../AntViewer_ios/Classes/Views/PortraitMessageCell.xib"
   install_resource "${PODS_ROOT}/../../AntViewer_ios/Classes/Views/StreamViewCell.xib"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/AntViewer_ios/AntWidget.bundle"
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++/gRPCCertificates.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/../../AntViewer_ios/Classes/AntWidget.xib"
@@ -125,6 +126,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/../../AntViewer_ios/Classes/Views/PortraitMessageCell.xib"
   install_resource "${PODS_ROOT}/../../AntViewer_ios/Classes/Views/StreamViewCell.xib"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/AntViewer_ios/AntWidget.bundle"
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++/gRPCCertificates.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

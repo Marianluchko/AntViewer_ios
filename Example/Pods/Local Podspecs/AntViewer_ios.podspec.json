@@ -47,9 +47,13 @@
     "Firebase/Core": [
       "~> 5.11"
     ],
-    "Firebase/Database": [
-      "~> 5.11"
+    "Firebase/Auth": [
+
+    ],
+    "Firebase/Firestore": [
+
     ]
   },
-  "swift_versions": "5"
+  "swift_versions": "5",
+  "swift_version": "5"
 }

@@ -5,7 +5,9 @@ target 'AntViewer_ios_Example' do
   pod 'AntViewer_ios', :path => '../'
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
-#  pod 'Firebase/Database', '~> 5.11', :modular_headers => true
+  
+  # debug
+  # pod 'AntViewerExt', :path => '../../AntViewerExt/AntViewerExt/'
 
   target 'AntViewer_ios_Tests' do
     inherit! :complete

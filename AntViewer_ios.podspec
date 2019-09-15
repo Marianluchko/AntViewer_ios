@@ -7,6 +7,9 @@
 #
 
 Pod::Spec.new do |s|
+
+  isDebug = false
+
   s.name             = 'AntViewer_ios'
   s.version          = '0.3.6'
   s.summary          = 'AntViewer provides to users possibility to watch streams and use chat and polls'
@@ -29,7 +32,13 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "11.3"
   s.source_files = 'AntViewer_ios/Classes/**/*.{swift}'
-  s.ios.vendored_frameworks = 'AntViewer_ios/MyFrameworks/AntViewerExt.framework', 'AntViewer_ios/MyFrameworks/Lottie.framework'
+
+  if isDebug
+    s.ios.vendored_frameworks = 'AntViewer_ios/MyFrameworks/Lottie.framework'
+    s.dependency 'AntViewerExt'
+  else
+    s.ios.vendored_frameworks = 'AntViewer_ios/MyFrameworks/AntViewerExt.framework', 'AntViewer_ios/MyFrameworks/Lottie.framework'
+  end
 
   s.resources = 'AntViewer_ios/Classes/**/*.{storyboard,xib,plist}'
   s.resource_bundles = {
@@ -42,6 +51,8 @@ Pod::Spec.new do |s|
   }
   s.frameworks = 'UIKit', 'AVKit'
   s.dependency 'Firebase/Core', '~> 5.11'
-  s.dependency 'Firebase/Database', '~> 5.11'
+  s.dependency 'Firebase/Auth'
+  s.dependency 'Firebase/Firestore'
+
   s.swift_version = "5"
 end
